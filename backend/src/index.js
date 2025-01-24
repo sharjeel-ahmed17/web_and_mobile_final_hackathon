@@ -3,6 +3,7 @@ import { connectDb } from "./configs/db.js";
 import "dotenv/config";
 import morgan from "morgan";
 import cors from "cors";
+import { config } from "./configs/config.js";
 // import {  } from "module";
 const app = express();
 
@@ -17,7 +18,7 @@ app.get("/" , async (req , res)=> res.send("api respose....."));
 
 connectDb().then((data)=>{
     console.log('data >>>',data);
-app.listen(process.env.PORT , ()=> {
+app.listen(config.Port , ()=> {
     console.log("server is runnig");
 })
 }).catch(()=>{
